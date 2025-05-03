@@ -1,6 +1,8 @@
 package com.neilo.sopromat.controller;
 
 import com.neilo.sopromat.dto.HingeBeamDto;
+import com.neilo.sopromat.service.HingeBeamService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,11 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/calculate")
 @Slf4j
-public class MainController {
+@RequiredArgsConstructor
+public class HingeBeamController {
+
+    private final HingeBeamService hingeBeamService;
 
     @PostMapping(value = "/hingeBeam")
     public void calculateHingeBeam(@RequestBody HingeBeamDto request) {
         System.out.println(request.toString());
+        hingeBeamService.calculate(request);
     }
 
 }
