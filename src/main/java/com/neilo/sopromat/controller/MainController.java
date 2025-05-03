@@ -15,6 +15,9 @@ public class MainController {
     @PostMapping(value = "/hingeBeam")
     public void calculateHingeBeam(@RequestBody HingeBeamDto request) {
         System.out.println(request.toString());
+
+
+
     }
 
 }
